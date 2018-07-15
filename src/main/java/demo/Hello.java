@@ -1,9 +1,11 @@
 package demo;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.ListView;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Hello extends Application {
@@ -14,10 +16,16 @@ public class Hello extends Application {
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Hello");
-        Pane root = new Pane() {{
-            getChildren().add(new Label("Hello, JavaFX!"));
+        VBox root = new VBox() {{
+            getChildren().add(createList());
         }};
         primaryStage.setScene(new Scene(root, 300, 250));
         primaryStage.show();
+    }
+
+    private Node createList() {
+        return new ListView<String>() {{
+            setItems(FXCollections.observableArrayList("Apple", "Orange", "Pear", "Banana"));
+        }};
     }
 }

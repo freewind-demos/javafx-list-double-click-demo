@@ -1,5 +1,5 @@
-JavaFX Hello World Demo
-=======================
+JavaFX List Demo
+================
 
-Show a window with `Hello, JavaFX` label.
+Show list.
 
