@@ -1,5 +1,5 @@
-JavaFX List Demo
-================
+JavaFX List Double Click Demo
+=============================
 
-Show list.
+Double click on a list, and show the selected item.
 

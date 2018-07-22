@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -26,6 +27,15 @@ public class Hello extends Application {
     private Node createList() {
         return new ListView<String>() {{
             setItems(FXCollections.observableArrayList("Apple", "Orange", "Pear", "Banana"));
+            setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2) {
+                    String selected = this.getSelectionModel().getSelectedItems().get(0);
+                    new Alert(Alert.AlertType.INFORMATION) {{
+                        setTitle("You selected:");
+                        setHeaderText(selected);
+                    }}.showAndWait();
+                }
+            });
         }};
     }
 }
